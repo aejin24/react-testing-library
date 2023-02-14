@@ -30,8 +30,8 @@ describe("<Todo />", () => {
     const todos = within(todoList).getAllByRole("listitem");
     const lastItem = within(todos[3]);
 
-    expect(lastItem.getByText(/aejin/)).toBeTruthy();
-    expect(lastItem.getByText(/aezing/)).toBeTruthy();
+    expect(lastItem.getByText(/aejin/)).toBeInTheDocument();
+    expect(lastItem.getByText(/aezing/)).toBeInTheDocument();
     expect(todos).toHaveLength(4);
 
     userEvent.clear(titleElement);
