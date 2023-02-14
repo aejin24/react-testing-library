@@ -51,7 +51,7 @@ describe("<Todo />", () => {
     const todoList = screen.getByRole("list");
     const todos = within(todoList).getAllByRole("listitem");
 
-    expect(todos).not.toBeNull();
+    expect(deleteButton).not.toBeInTheDocument();
     expect(todos).toHaveLength(2);
   });
 });
