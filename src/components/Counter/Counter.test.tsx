@@ -27,11 +27,7 @@ describe("<Counter />", () => {
     userEvent.click(plusButton);
     userEvent.click(plusButton);
 
-    // text가 여러 개일 때는 testid를 찾아서 가져오거나 해야하나?
-    // 다른 방법으로 선택하지 못할 때 사용하는 방법, querySelector로도 가져올 수 있으나 차라리 data-testid 로 설정
-    const countText = screen.getByTestId("count");
-
-    expect(countText).toHaveTextContent("2"); // jest-dom의 확장 matcher 사용
+    expect(screen.getByText("2")).toBeInTheDocument();
   });
 
   it("Click Minus Button", () => {
@@ -40,8 +36,6 @@ describe("<Counter />", () => {
     const minusButton = screen.getByRole("button", { name: "-" });
     userEvent.click(minusButton);
 
-    const countText = screen.getByTestId("count");
-
-    expect(countText).toHaveTextContent("-1");
+    expect(screen.getByText("-1")).toBeInTheDocument();
   });
 });
