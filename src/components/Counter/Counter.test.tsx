@@ -15,11 +15,13 @@ import Counter from ".";
 
 describe("<Counter />", () => {
   // it - 개별 테스트 수행 (test 메서드와 동일)
-  it("Render Counter Component", () => {
+  it("should set init number(0) in screen", () => {
     render(<Counter />); // 테스트를 위해 컴포넌트를 jsdom에 렌더링
+
+    expect(screen.getByText("0")).toBeInTheDocument();
   });
 
-  it("Click Plus Button", () => {
+  it("should add number when click plus button", () => {
     render(<Counter />);
 
     const plusButton = screen.getByRole("button", { name: "+" }); // name(TextMatch)
@@ -30,7 +32,7 @@ describe("<Counter />", () => {
     expect(screen.getByText("2")).toBeInTheDocument();
   });
 
-  it("Click Minus Button", () => {
+  it("should minus number when click minus button", () => {
     render(<Counter />);
 
     const minusButton = screen.getByRole("button", { name: "-" });
